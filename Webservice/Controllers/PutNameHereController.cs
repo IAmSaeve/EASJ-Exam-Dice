@@ -9,7 +9,7 @@ namespace webservice.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PutNameHere : ControllerBase
+    public class PutNameHereController : ControllerBase
     {
         // MSSQL connection string.
         private const string connection = "Server=tcp:easjexam.database.windows.net,1433; Initial Catalog=examdb;" +
