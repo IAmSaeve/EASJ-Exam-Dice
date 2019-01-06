@@ -32,7 +32,6 @@ namespace webservice.Controllers
             {
                 while (reader.Read())
                 {
-                    // result.Add(new Meassurement(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4)));
                     result.Add(new string("ID: " + reader.GetInt32(0).ToString() + " Name: " + reader.GetString(1)));
                 }
                 db.Dispose();
@@ -57,7 +56,6 @@ namespace webservice.Controllers
             {
                 while (reader.Read())
                 {
-                    // result = new Meassurement(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4));
                     result = new string("ID: " + reader.GetInt32(0).ToString() + " Name: " + reader.GetString(1));
                 }
                 db.Dispose();
