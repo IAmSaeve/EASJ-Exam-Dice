@@ -20,6 +20,7 @@ namespace webservice.Controllers
         [HttpGet]
         public List<object> Get()
         {
+            throw new NotImplementedException("Delete this before build");
             var result = new List<object>();
             var sql = "SELECT * FROM Meassurement";
             var db = new SqlConnection(connection);
@@ -45,6 +46,7 @@ namespace webservice.Controllers
         [HttpGet("{id}")]
         public object Get(int id)
         {
+            throw new NotImplementedException("Delete this before build");
             object result = null;
             var sql = $"SELECT * FROM Meassurement WHERE id = '{id}'";
             var db = new SqlConnection(connection);
@@ -70,6 +72,7 @@ namespace webservice.Controllers
         [HttpPost]
         public int InsertObject(object o)
         {
+            throw new NotImplementedException("Delete this before build");
             var sql = "INSERT INTO dbo.Meassurement (Pressure, Humidity, Temperature, [TimeStamp])" + "TODO: Fix later";
             // $"VALUES ('{Meassurement.Pressure}', '{Meassurement.Humidity}', '{Meassurement.Temperature}', '{Meassurement.TimeStamp}')";
             var db = new SqlConnection(connection);
@@ -86,6 +89,7 @@ namespace webservice.Controllers
         [HttpPut("{id}")]
         public int UpdateObject(int id, [FromBody] object o)
         {
+            throw new NotImplementedException("Delete this before build");
             var sql = $"UPDATE Meassurement SET Pressure = "; // TODO: Fix later '{Meassurement.Pressure}', " +
             // $"Humidity = '{Meassurement.Humidity}', Temperature = '{Meassurement.Temperature}'" +
             // $"TimeStamp = '{Meassurement.TimeStamp}' WHERE id='{id}'";
@@ -103,6 +107,7 @@ namespace webservice.Controllers
         [HttpDelete("{id}")]
         public int DeleteObject(int id)
         {
+            throw new NotImplementedException("Delete this before build");
             var sql = $"DELETE FROM Meassurement WHERE id='{id}'";
             var db = new SqlConnection(connection);
             db.Open();
