@@ -1,6 +1,7 @@
 .vscode
 .vs
 .directory
+TestResults/
 [Nn]ode_modules/
 [Dd]ist/
 .DS_Store
