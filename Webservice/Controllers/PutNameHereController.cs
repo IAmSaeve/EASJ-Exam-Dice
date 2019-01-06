@@ -16,13 +16,12 @@ namespace webservice.Controllers
         "Persist Security Info=False; User ID=sebastian; Password=P@ssw0rd;" +
         "MultipleActiveResultSets=False; Encrypt=True; TrustServerCertificate=False; Connection Timeout=30;";
 
-        // GET: api/Meassurement
+        // GET: api/TestTable
         [HttpGet]
-        public List<object> Get()
+        public ActionResult<IEnumerable<string>> Get()
         {
-            throw new NotImplementedException("Delete this before build");
             var result = new List<object>();
-            var sql = "SELECT * FROM Meassurement";
+            var sql = "SELECT * FROM TestTable";
             var db = new SqlConnection(connection);
             db.Open();
 
@@ -34,21 +33,20 @@ namespace webservice.Controllers
                 while (reader.Read())
                 {
                     // result.Add(new Meassurement(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4)));
-                    result.Add(new object());
+                    result.Add(new string("ID: " + reader.GetInt32(0).ToString() + " Name: " + reader.GetString(1)));
                 }
+                db.Dispose();
+                return Ok(result);
             }
-
-            db.Dispose();
-            return result;
+            return NotFound();
         }
 
-        // GET: api/Meassurements/1
+        // GET: api/TestTable/1
         [HttpGet("{id}")]
-        public object Get(int id)
+        public ActionResult<string> Get(int id)
         {
-            throw new NotImplementedException("Delete this before build");
             object result = null;
-            var sql = $"SELECT * FROM Meassurement WHERE id = '{id}'";
+            var sql = $"SELECT * FROM TestTable WHERE id = '{id}'";
             var db = new SqlConnection(connection);
             db.Open();
 
@@ -60,12 +58,12 @@ namespace webservice.Controllers
                 while (reader.Read())
                 {
                     // result = new Meassurement(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4));
-                    result = new object();
+                    result = new string("ID: " + reader.GetInt32(0).ToString() + " Name: " + reader.GetString(1));
                 }
+                db.Dispose();
+                return Ok(result);
             }
-
-            db.Dispose();
-            return result;
+            return NotFound();
         }
 
         // POST api/Meassurements
